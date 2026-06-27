@@ -2,8 +2,6 @@
 setlocal enabledelayedexpansion
 
 #set INPUT to a file directory instead of a folder to process one file and folder directory to process multiple files automatically.
-
-
 set "INPUT="
 set "KEY="
 set "WORK="
@@ -14,14 +12,22 @@ set "GPU_PRESET="
 #Set it to P1(better quality) to P7(faster processing)
 
 uvx wannacri extractusm "%INPUT%" --key %KEY% -o "%WORK%"
+
 for /r "%WORK%" %%f in (*.ivf) do (
     for /f "tokens=2 delims== " %%a in ('ffprobe -v 0 -select_streams v:0 -show_entries format^=bit_rate -of default^=noprint_wrappers^=1 "%%f"') do (
+        
         set /a target=%%a/6
-        set /a buffer=!target!*2
-
-        ffmpeg -init_hw_device qsv=hw -hwaccel qsv -c:v vp9 -i "%%f" -r 30-c:v vp9_qsv!target_rate !target!
-        -bufsize !target! 
-        -preset %GPU_PRESET%moveix_fmt yuv420p "%%f.tmp.ivf"
+        set /a buffer=!target!
+        
+        ffmpeg -init_hw_device qsv=hw -hwaccel qsv -c:v vp9 -i "%%f" -r 30 
+        -c:v vp9_qsv 
+        -preset %GPU_PRESET% 
+        -b:v !target! 
+        -minrate !target!
+        -maxrate !target! 
+        -bufsize !buffer! 
+        -pix_fmt yuv420p "%%f.tmp.ivf"      
+        
         move /y "%%f.tmp.ivf" "%%f"
     )
 )
