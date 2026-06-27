@@ -8,4 +8,8 @@ Work is where everything get sent after decryption and then will be compressed.
 
 OUTPUT is where your compressed files will be at after being encrypted.
 
-The directory is where you put your FFMPEG directory.
+DIRECTORY is where you put your FFMPEG directory.
+
+KEY is the thing to give you access to decrypt the files.
+
+CPU and THREADS is basically setting how many cores or threads you want to use to process it.
