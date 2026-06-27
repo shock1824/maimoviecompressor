@@ -1,4 +1,4 @@
-@echo off
+targetgetho off
 setlocal enabledelayedexpansion
 
 #set INPUT to a file directory instead of a folder to process one file and folder directory to process multiple files automatically.
@@ -17,7 +17,7 @@ for /r "%WORK%" %%f in (*.ivf) do (
     for /f "tokens=2 delims== " %%a in ('ffprobe -v 0 -select_streams v:0 -show_entries format^=bit_rate -of default^=noprint_wrappers^=1 "%%f"') do (
         
         set /a target=%%a/6
-        set /a buffer=!target!
+        set /a buffer=!target!*2
         
         ffmpeg -init_hw_device qsv=hw -hwaccel qsv -c:v vp9 -i "%%f" -r 30 
         -c:v vp9_qsv 
