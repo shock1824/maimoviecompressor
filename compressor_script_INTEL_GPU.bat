@@ -14,7 +14,6 @@ set "GPU_PRESET="
 #Set it to P1(better quality) to P7(faster processing)
 
 uvx wannacri extractusm "%INPUT%" --key %KEY% -o "%WORK%"
-
 for /r "%WORK%" %%f in (*.ivf) do (
     for /f "tokens=2 delims== " %%a in ('ffprobe -v 0 -select_streams v:0 -show_entries format^=bit_rate -of default^=noprint_wrappers^=1 "%%f"') do (
         set /a target=%%a/6
