@@ -17,23 +17,14 @@ set compression rate=
 uvx wannacri extractusm %INPUT% --key %KEY% -o %WORK%
 for /r %WORK% %%f in (*.ivf) do (
     for /f "tokens=2 delims== " %%a in ('ffprobe -v 0 -select_streams v:0 -show_entries format^=bit_rate -of default^=noprint_wrappers^=1 "%%f"') do (
-        set /a target=%%a/compression rate%
+        set /a target=%%a/ %compression rate%
         set /a buffer=!target!*2
 
-        ffmpeg -i "%%f" -r 30 -c:v libvpx-vp9 
-        -b:v !target! 
-        -minrate !target! 
-        -maxrate !target! 
-        -bufsize !buffer! 
-        -deadline good 
-        -cpu-used %CPU% 
-        -row-mt 1 
-        -tile-columns 2 
-        -threads %threads% 
-        -pix_fmt yuv420p "%%f.tmp.ivf"
+        ffmpeg -i "%%f" -r 30 -c:v libvpx-vp9 -b:v !target! -minrate !target! -maxrate !target! -bufsize !buffer! -deadline good -cpu-used %CPU% -row-mt 1 -tile-columns 2 -threads %threads% -pix_fmt yuv420p "%%f.tmp.ivf"
         move /y "%%f.tmp.ivf" "%%f"
     )
 )
+
 
 cd /d %DIRECTORY%
 set "processedFolders="
