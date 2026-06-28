@@ -14,4 +14,8 @@ KEY is the thing to give you access to decrypt the files.
 
 CPU and THREADS is basically setting how many cores or threads you want to use to process it.
 
-INTEL GPU version only works on the Dedicated gpus
+INTEL GPUs only work as almost none of the other manufacturers support the VP9 codex.
+
+If you have an igpu thats from INTEL, you need to activate the igpu in the bios since it will likely be deactivated if you have a dedicated GPU.
+
+Any questions please DM me in Discord @Shockwave1824
