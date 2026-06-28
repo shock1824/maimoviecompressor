@@ -1,5 +1,9 @@
 Must have wannacri, FFMPEG and mai2dat to encrypt it.
 
+Wannacri link: https://github.com/donmai-me/WannaCRI
+
+The steps to download are in that link, UV is also needed for the script to run.
+
 mai2dat link: https://github.com/0x24a/mai2dat
 
 To use it, you need to set INPUT to where your uncompressed .dat files are located or the .dat files themselves if you only want to compress one file. 
