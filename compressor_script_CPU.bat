@@ -44,7 +44,7 @@ for /r %WORK% %%f in (*.ivf) do (
     rem check if already processed
     echo !processedFolders! | findstr /i /c:"!grandparentFolder!" >nul
     if errorlevel 1 (
-        uv run main.py "%%f" "%OUTPUT%\!grandparentFolder!"
+        uv run main.py "%%f" "%OUTPUT%\!grandparentFolder!" <nul
         set "processedFolders=!processedFolders! !grandparentFolder!"
     )
 )
