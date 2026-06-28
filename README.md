@@ -12,7 +12,9 @@ DIRECTORY is where you put your mai2dat directory.
 
 KEY is the decryption key.
 
-CPU and THREADS is basically setting how many cores or threads you want to use to process it. (The more CPU and THREADS the faster it'll compress but lower quality, the less CPU and THREADS the more the quality but slower compression)
+CPU and THREADS is basically setting how many cores or threads you want to use to process it. 
+
+(The more CPU and THREADS the faster it'll compress but lower quality, the less CPU and THREADS the more the quality but slower compression)
 
 INTEL GPUs only work as almost none of the other manufacturers support the VP9 codex.
 
