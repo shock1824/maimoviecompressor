@@ -13,3 +13,5 @@ DIRECTORY is where you put your mai2dat directory.
 KEY is the thing to give you access to decrypt the files.
 
 CPU and THREADS is basically setting how many cores or threads you want to use to process it.
+
+INTEL GPU version only works on the Dedicated gpus
