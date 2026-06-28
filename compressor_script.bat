@@ -8,8 +8,8 @@ set KEY=
 set INPUT=
 set WORK=
 set OUTPUT=
-set DIRECTORY=
 #Directory where the mai2dat is located.
+set DIRECTORY=
 set CPU=
 set threads=
 set compression rate=
