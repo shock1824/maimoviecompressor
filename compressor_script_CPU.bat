@@ -8,8 +8,9 @@ set KEY=
 set INPUT=
 set WORK=
 set OUTPUT=
-#Directory where the mai2dat is located.
+#Directory where the mai2dat is located
 set DIRECTORY=
+#The more CPU and THREADS the faster it'll compress but lower quality, the less CPU and THREADS the more the quality but slower compression
 set CPU=
 set threads=
 set compression rate=
