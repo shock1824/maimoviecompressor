@@ -8,7 +8,7 @@ set WORK=
 set OUTPUT=
 #Directory where the mai2dat is located.
 set DIRECTORY=
-#Set GPU PRESET it to P1(better quality) to P7(faster processing)
+#Set GPU PRESET it to P1(faster processing) to P7(better quality)
 set GPU_PRESET=
 set compression rate=
 
