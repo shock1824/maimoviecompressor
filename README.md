@@ -2,17 +2,17 @@ Must have wannacri, FFMPEG and mai2dat to encrypt it.
 
 mai2dat link: https://github.com/0x24a/mai2dat
 
-To use it, you need to set INPUT to where your uncompressed files. 
+To use it, you need to set INPUT to where your uncompressed .dat files are located or the .dat files themselves if you only want to compress one file. 
 
-Work is where everything get sent after decryption and then will be compressed.
+Work is where you can find the decrypted and compressed MVs.
 
-OUTPUT is where your compressed files will be at after being encrypted.
+OUTPUT is where the encrypted compressed files are.
 
 DIRECTORY is where you put your mai2dat directory.
 
-KEY is the thing to give you access to decrypt the files.
+KEY is the decryption key.
 
-CPU and THREADS is basically setting how many cores or threads you want to use to process it.
+CPU and THREADS is basically setting how many cores or threads you want to use to process it. (The more CPU and THREADS the faster it'll compress but lower quality, the less CPU and THREADS the more the quality but slower compression)
 
 INTEL GPUs only work as almost none of the other manufacturers support the VP9 codex.
 
