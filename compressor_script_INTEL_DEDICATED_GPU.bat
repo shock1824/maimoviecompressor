@@ -8,7 +8,9 @@ set WORK=
 set OUTPUT=
 #Directory where the mai2dat is located.
 set DIRECTORY=
-#Set GPU PRESET it to P1(faster processing) to P7(better quality)
+#Go to task manager and go to performance your GPU is assigned to a number ie if its GPU_0 then set GPU=0 same for GPU_1 then set GPU=1
+set GPU=
+#Set GPU PRESET it to P1(faster processing lower quality) to P7(better quality slower processing)
 set GPU_PRESET=
 set compression rate=
 
@@ -20,7 +22,7 @@ for /r "%WORK%" %%f in (*.ivf) do (
         set /a target=%%a/%compression rate%
         set /a buffer=!target!*2
         
-        ffmpeg -init_hw_device qsv=hw -hwaccel qsv -c:v vp9 -i "%%f" -r 30 -c:v vp9_qsv -preset %GPU_PRESET% -b:v !target! -minrate !target!-maxrate !target! -bufsize !buffer! -pix_fmt yuv420p "%%f.tmp.ivf"
+        ffmpeg -init_hw_device qsv=hw:hw,child_device=%GPU% -hwaccel qsv -c:v vp9 -i "%%f" -r 30 -c:v vp9_qsv -preset %GPU_PRESET% -b:v !target! -minrate !target!-maxrate !target! -bufsize !buffer! -pix_fmt yuv420p "%%f.tmp.ivf"
         move /y "%%f.tmp.ivf" "%%f"
     )
 )
